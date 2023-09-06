@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:task2/features/home/page/home_page.dart';
+import 'package:task2/features/home/home_page.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: WorksPage(),
+      home: const HomePage(),
       theme: ThemeData.light(),
     );
   }

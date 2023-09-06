@@ -2,32 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:task2/product/model/works.dart';
 
 mixin HomePageMixin on StatelessWidget {
-  final tabs = const <BottomNavigationBarItem>[
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.home_outlined,
-          size: 30,
-        ),
-        label: ""),
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.person_outlined,
-          size: 30,
-        ),
-        label: ""),
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.message_outlined,
-          size: 30,
-        ),
-        label: ""),
-    BottomNavigationBarItem(
-        icon: Icon(
-          Icons.group_outlined,
-          size: 30,
-        ),
-        label: ""),
-  ];
   List<Works> workList = [
     Works(
       title: "Web Developer",

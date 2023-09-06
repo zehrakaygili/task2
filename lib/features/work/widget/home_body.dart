@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task2/features/home/widget/decoration/home_decoration.dart';
-import 'package:task2/features/home/widget/header.dart';
-import 'package:task2/features/home/widget/work_card.dart';
+import 'package:task2/features/work/widget/decoration/home_decoration.dart';
+import 'package:task2/features/work/widget/header.dart';
+import 'package:task2/features/work/widget/work_card.dart';
 import 'package:task2/product/model/works.dart';
 
 class HomeBody extends StatelessWidget {
