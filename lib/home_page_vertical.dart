@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task2/constants.dart';
 import 'package:task2/widgets/work_card.dart';
 import 'package:task2/widgets/works.dart';
-
-import 'user_page.dart';
 
 class WorksPage extends StatefulWidget {
   const WorksPage({
@@ -71,37 +68,39 @@ class _WorksPageState extends State<WorksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
-                fit: BoxFit.cover),
-          ),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 80,
-              ),
-              const Text(
-                "WORKS",
-                style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              const Text(
-                "7 groups of contact",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
+      body: SafeArea(
+        child: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage('assets/images/background.png'),
+                  fit: BoxFit.cover),
+            ),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 80,
                 ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              WorkCard(workList: workList)
-            ],
-          )),
+                const Text(
+                  "WORKS",
+                  style: TextStyle(
+                      fontSize: 50,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+                const Text(
+                  "7 groups of contact",
+                  style: TextStyle(
+                    fontSize: 25,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                WorkCard(workList: workList)
+              ],
+            )),
+      ),
       bottomNavigationBar: BottomNavigationBar(
         showSelectedLabels: false,
         showUnselectedLabels: false,
