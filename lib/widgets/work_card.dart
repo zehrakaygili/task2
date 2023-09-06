@@ -44,11 +44,13 @@ class WorkCard extends StatelessWidget {
                                 '${workList[index].title}',
                                 style: titleTextStyle,
                               ),
-                              Text(
-                                '${workList[index].description}',
-                                style: subtitleTextStyle,
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
+                              Container(
+                                width: 200,
+                                child: Text(
+                                  '${workList[index].description}',
+                                  style: subtitleTextStyle,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
                               ),
                               Row(
                                 children: [
