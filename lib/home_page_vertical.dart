@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task2/constants.dart';
+import 'package:task2/widgets/work_card.dart';
 import 'package:task2/widgets/works.dart';
 
 import 'user_page.dart';
@@ -14,6 +15,8 @@ class WorksPage extends StatefulWidget {
 }
 
 class _WorksPageState extends State<WorksPage> {
+  int _currentIndex = 0;
+
   List<Works> workList = [
     Works(
       title: "Web Developer",
@@ -76,12 +79,15 @@ class _WorksPageState extends State<WorksPage> {
           ),
           child: Column(
             children: [
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
               const Text(
                 "WORKS",
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black),
               ),
               const Text(
                 "7 groups of contact",
@@ -90,62 +96,51 @@ class _WorksPageState extends State<WorksPage> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(
-                height: 30,
+              const SizedBox(
+                height: 20,
               ),
-              Expanded(
-                child: ListView.builder(
-                    itemCount: workList.length,
-                    itemBuilder: (context, index) => Card(
-                          elevation: 10,
-                          clipBehavior: Clip.hardEdge,
-                          child: InkWell(
-                            onTap: () {
-                              Navigator.of(context)
-                                  .push(MaterialPageRoute(builder: (context) {
-                                return const UserPage();
-                              }));
-                            },
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Image.network(
-                                    '${workList[index].imageUrl}',
-                                    width: 150,
-                                    height: 75,
-                                  ),
-                                  Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        '${workList[index].title}',
-                                        style: titleTextStyle,
-                                      ),
-                                      Text(
-                                        '${workList[index].description}',
-                                        style: subtitleTextStyle,
-                                        overflow: TextOverflow.ellipsis,
-                                        maxLines: 1,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Icon(Icons.person),
-                                          Text(
-                                              '${workList[index].numberpersonText}'),
-                                        ],
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                        )),
-              )
+              WorkCard(workList: workList)
             ],
           )),
+      bottomNavigationBar: BottomNavigationBar(
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home_outlined,
+                size: 30,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.person_outlined,
+                size: 30,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.message_outlined,
+                size: 30,
+              ),
+              label: ""),
+          BottomNavigationBarItem(
+              icon: Icon(
+                Icons.group_outlined,
+                size: 30,
+              ),
+              label: ""),
+        ],
+        backgroundColor: Colors.blue,
+        selectedItemColor: Colors.grey[900],
+        unselectedItemColor: Colors.grey[600],
+        currentIndex: _currentIndex,
+        onTap: (index) {
+          setState(() {
+            _currentIndex = index;
+          });
+        },
+      ),
     );
   }
 }
