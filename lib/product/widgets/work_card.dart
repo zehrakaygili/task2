@@ -23,7 +23,7 @@ class WorkCard extends StatelessWidget {
                   onTap: () {
                     Navigator.of(context)
                         .push(MaterialPageRoute(builder: (context) {
-                      return const UserPage();
+                      return UserPage();
                     }));
                   },
                   child: Container(
