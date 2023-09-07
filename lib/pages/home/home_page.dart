@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:task2/constants.dart';
-import 'package:task2/widgets/work_card.dart';
-import 'package:task2/widgets/works.dart';
-
-import 'user_page.dart';
+import 'package:task2/product/widgets/bottombar.dart';
+import 'package:task2/product/widgets/home_body.dart';
+import 'package:task2/product/widgets/works.dart';
 
 class WorksPage extends StatefulWidget {
   const WorksPage({
@@ -15,8 +13,6 @@ class WorksPage extends StatefulWidget {
 }
 
 class _WorksPageState extends State<WorksPage> {
-  int _currentIndex = 0;
-
   List<Works> workList = [
     Works(
       title: "Web Developer",
@@ -71,76 +67,7 @@ class _WorksPageState extends State<WorksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/background.png'),
-                fit: BoxFit.cover),
-          ),
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 80,
-              ),
-              const Text(
-                "WORKS",
-                style: TextStyle(
-                    fontSize: 50,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-              const Text(
-                "7 groups of contact",
-                style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              WorkCard(workList: workList)
-            ],
-          )),
-      bottomNavigationBar: BottomNavigationBar(
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home_outlined,
-                size: 30,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.person_outlined,
-                size: 30,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.message_outlined,
-                size: 30,
-              ),
-              label: ""),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.group_outlined,
-                size: 30,
-              ),
-              label: ""),
-        ],
-        backgroundColor: Colors.blue,
-        selectedItemColor: Colors.grey[900],
-        unselectedItemColor: Colors.grey[600],
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
-    );
+        body: HomeBody(workList: workList),
+        bottomNavigationBar: const BottomBar());
   }
 }

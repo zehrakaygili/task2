@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task2/home_page_vertical.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:task2/pages/home/home_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(textTheme: GoogleFonts.barlowTextTheme()),
       debugShowCheckedModeBanner: false,
-      home: const WorksPage(),
+      home: WorksPage(),
     );
   }
 }
